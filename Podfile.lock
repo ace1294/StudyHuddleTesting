@@ -1,0 +1,10 @@
+PODS:
+  - DZNSegmentedControl (1.1.2)
+
+DEPENDENCIES:
+  - DZNSegmentedControl (~> 1.1)
+
+SPEC CHECKSUMS:
+  DZNSegmentedControl: 75d84f4e6b16b01d5168c89c1f46f9fead983dc9
+
+COCOAPODS: 0.33.1

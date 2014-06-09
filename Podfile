@@ -1,0 +1,1 @@
+pod 'DZNSegmentedControl', '~> 1.1'
