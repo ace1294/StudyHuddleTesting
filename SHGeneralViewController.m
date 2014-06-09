@@ -7,26 +7,35 @@
 //
 
 #import "SHGeneralViewController.h"
+#import "SHSegmentedViewController.h"
+
 
 @interface SHGeneralViewController ()
+
+@property (nonatomic, strong) SHSegmentedViewController *segmentedControl;
 
 @end
 
 @implementation SHGeneralViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if(self = [super init])
+    {
+        _segmentedControl = [[SHSegmentedViewController alloc] init];
     }
+    
     return self;
 }
 
-- (void)viewDidLoad
+- (void) loadView
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+}
+
+- (void) viewDidLoad
+{
+    [self.view addSubview:self.segmentedControl.view];
 }
 
 - (void)didReceiveMemoryWarning

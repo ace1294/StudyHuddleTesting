@@ -7,13 +7,19 @@
 //
 
 #import "SHAppDelegate.h"
+#import "SHGeneralViewController.h"
+#import "SHSegmentedViewController.h"
 
 @implementation SHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    
+    SHSegmentedViewController *generalVC = [[SHSegmentedViewController alloc]init];
+    
+    self.window.rootViewController = generalVC;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
