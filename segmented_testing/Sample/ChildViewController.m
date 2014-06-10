@@ -27,9 +27,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.control.backgroundColor = [UIColor orangeColor];
+    //self.control.backgroundColor = [UIColor orangeColor];
     //self.menuItems =  @[[@"Studying now" uppercaseString], [@"Following" uppercaseString], [@"Followers" uppercaseString]];
-    [self.control setItems:@[[@"Studying now" uppercaseString], [@"Following" uppercaseString], [@"Followers" uppercaseString]]];
+    //[self.control setItems:@[[@"Studying now" uppercaseString], [@"Following" uppercaseString], [@"Followers" uppercaseString]]];
     
     
     

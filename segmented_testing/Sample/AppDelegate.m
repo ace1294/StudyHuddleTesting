@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
 #import "MasterViewController.h"
 #import "ChildViewController.h"
 
@@ -18,9 +17,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     
-    MasterViewController* masterViewController = [[ChildViewController alloc]init];
+    MasterViewController* masterViewController = [[MasterViewController alloc]init];
     
     //UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+    self.window.backgroundColor = [UIColor grayColor];
     self.window.rootViewController = masterViewController;
     
     [self.window makeKeyAndVisible];

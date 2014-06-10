@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>A230009B-D8C0-4819-800B-DD738DD1C69E</string>
+	<string>AF3ECCC6-5D00-4DDA-BBC3-31A6FB185DDD</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Sample</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>D4E1B1FD-0638-45F2-AF36-920AD4E011D3</key>
-		<string>https://github.com/dzenbot/DZNSegmentedControl.git</string>
+		<key>905A2391-7D08-4AF0-81F4-1152D6B04C09</key>
+		<string>https://github.com/ace1294/StudyHuddleTesting.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Examples/Sample/Sample.xcodeproj/project.xcworkspace</string>
+	<string>segmented_testing/Sample.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>D4E1B1FD-0638-45F2-AF36-920AD4E011D3</key>
-		<string>../../../..</string>
+		<key>905A2391-7D08-4AF0-81F4-1152D6B04C09</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/dzenbot/DZNSegmentedControl.git</string>
+	<string>https://github.com/ace1294/StudyHuddleTesting.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>D4E1B1FD-0638-45F2-AF36-920AD4E011D3</string>
+	<string>905A2391-7D08-4AF0-81F4-1152D6B04C09</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D4E1B1FD-0638-45F2-AF36-920AD4E011D3</string>
+			<string>905A2391-7D08-4AF0-81F4-1152D6B04C09</string>
 			<key>IDESourceControlWCCName</key>
-			<string>DZNSegmentedControl</string>
+			<string>GeneralLayout</string>
 		</dict>
 	</array>
 </dict>
