@@ -20,6 +20,12 @@
 		969C6FD5194929FC00B31175 /* Accept@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 969C6FD1194929FC00B31175 /* Accept@2x.png */; };
 		969C6FD6194929FC00B31175 /* Deny.png in Resources */ = {isa = PBXBuildFile; fileRef = 969C6FD2194929FC00B31175 /* Deny.png */; };
 		969C6FD7194929FC00B31175 /* Deny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 969C6FD3194929FC00B31175 /* Deny@2x.png */; };
+		969C6FDA19497F5200B31175 /* SHHuddle.m in Sources */ = {isa = PBXBuildFile; fileRef = 969C6FD919497F5200B31175 /* SHHuddle.m */; };
+		969C6FDD1949809400B31175 /* SHStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 969C6FDC1949809400B31175 /* SHStudent.m */; };
+		969C6FE01949809E00B31175 /* SHClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 969C6FDF1949809E00B31175 /* SHClass.m */; };
+		969C6FE4194A262000B31175 /* SHAddCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 969C6FE3194A262000B31175 /* SHAddCell.m */; };
+		969C6FE6194A2C4D00B31175 /* plusSign@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 969C6FE5194A2C4D00B31175 /* plusSign@2x.png */; };
+		969C6FE8194A2C5200B31175 /* plusSign.png in Resources */ = {isa = PBXBuildFile; fileRef = 969C6FE7194A2C5200B31175 /* plusSign.png */; };
 		96A2958719463B2C00814968 /* DZNSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A2958619463B2C00814968 /* DZNSegmentedControl.m */; };
 		96A295891946467000814968 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96A295881946467000814968 /* Parse.framework */; };
 		96A2958B1946468000814968 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96A2958A1946468000814968 /* Security.framework */; };
@@ -74,6 +80,16 @@
 		969C6FD1194929FC00B31175 /* Accept@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Accept@2x.png"; sourceTree = "<group>"; };
 		969C6FD2194929FC00B31175 /* Deny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Deny.png; sourceTree = "<group>"; };
 		969C6FD3194929FC00B31175 /* Deny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Deny@2x.png"; sourceTree = "<group>"; };
+		969C6FD819497F5200B31175 /* SHHuddle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHHuddle.h; sourceTree = "<group>"; };
+		969C6FD919497F5200B31175 /* SHHuddle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHHuddle.m; sourceTree = "<group>"; };
+		969C6FDB1949809400B31175 /* SHStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHStudent.h; sourceTree = "<group>"; };
+		969C6FDC1949809400B31175 /* SHStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHStudent.m; sourceTree = "<group>"; };
+		969C6FDE1949809E00B31175 /* SHClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHClass.h; sourceTree = "<group>"; };
+		969C6FDF1949809E00B31175 /* SHClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHClass.m; sourceTree = "<group>"; };
+		969C6FE2194A262000B31175 /* SHAddCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAddCell.h; sourceTree = "<group>"; };
+		969C6FE3194A262000B31175 /* SHAddCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAddCell.m; sourceTree = "<group>"; };
+		969C6FE5194A2C4D00B31175 /* plusSign@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plusSign@2x.png"; sourceTree = "<group>"; };
+		969C6FE7194A2C5200B31175 /* plusSign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plusSign.png; sourceTree = "<group>"; };
 		96A2958519463B2C00814968 /* DZNSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNSegmentedControl.h; sourceTree = "<group>"; };
 		96A2958619463B2C00814968 /* DZNSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZNSegmentedControl.m; sourceTree = "<group>"; };
 		96A295881946467000814968 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -203,6 +219,7 @@
 				4124F112194634B20018933C /* ChildViewController.h */,
 				4124F113194634B20018933C /* ChildViewController.m */,
 				96A296251946807200814968 /* UITableViewCells */,
+				969C6FE1194A242200B31175 /* Objects */,
 				96A29626194683BE00814968 /* SHImageView.h */,
 				96A29627194683BE00814968 /* SHImageView.m */,
 				96A2962C1946853500814968 /* SHPageImageView.h */,
@@ -225,6 +242,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		969C6FE1194A242200B31175 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				969C6FD819497F5200B31175 /* SHHuddle.h */,
+				969C6FD919497F5200B31175 /* SHHuddle.m */,
+				969C6FDB1949809400B31175 /* SHStudent.h */,
+				969C6FDC1949809400B31175 /* SHStudent.m */,
+				969C6FDE1949809E00B31175 /* SHClass.h */,
+				969C6FDF1949809E00B31175 /* SHClass.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
 		96A296251946807200814968 /* UITableViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +266,8 @@
 				96A296461947F8D000814968 /* SHClassCell.m */,
 				96A296481948080D00814968 /* SHRequestCell.h */,
 				96A296491948080D00814968 /* SHRequestCell.m */,
+				969C6FE2194A262000B31175 /* SHAddCell.h */,
+				969C6FE3194A262000B31175 /* SHAddCell.m */,
 			);
 			name = UITableViewCells;
 			sourceTree = "<group>";
@@ -246,6 +278,8 @@
 				96A29641194797B400814968 /* Arial.ttf */,
 				96A29643194797BE00814968 /* Arial Black.ttf */,
 				96E122DC19491FA100608184 /* Right_Pointing_Arrow@2x.png */,
+				969C6FE7194A2C5200B31175 /* plusSign.png */,
+				969C6FE5194A2C4D00B31175 /* plusSign@2x.png */,
 				969C6FD0194929FC00B31175 /* Accept.png */,
 				969C6FD1194929FC00B31175 /* Accept@2x.png */,
 				969C6FD2194929FC00B31175 /* Deny.png */,
@@ -321,6 +355,8 @@
 				96A296341946998100814968 /* BackgroundComments.png in Resources */,
 				96A29644194797BE00814968 /* Arial Black.ttf in Resources */,
 				96A2962B194684A800814968 /* ShadowProfilePicture-43@2x.png in Resources */,
+				969C6FE6194A2C4D00B31175 /* plusSign@2x.png in Resources */,
+				969C6FE8194A2C5200B31175 /* plusSign.png in Resources */,
 				969C6FD4194929FC00B31175 /* Accept.png in Resources */,
 				96A29630194685D200814968 /* ShadowProfilePicture-29.png in Resources */,
 				4FFE32D118C56B5100C3A85F /* InfoPlist.strings in Resources */,
@@ -350,8 +386,12 @@
 				96A296371946B07800814968 /* SHHuddleCell.m in Sources */,
 				416EC0AD194622AA008501E4 /* MasterViewController.m in Sources */,
 				96A296241946806800814968 /* SHBaseTableViewCell.m in Sources */,
+				969C6FE01949809E00B31175 /* SHClass.m in Sources */,
+				969C6FE4194A262000B31175 /* SHAddCell.m in Sources */,
+				969C6FDA19497F5200B31175 /* SHHuddle.m in Sources */,
 				4FFE32D318C56B5100C3A85F /* main.m in Sources */,
 				4FFE32D718C56B5100C3A85F /* AppDelegate.m in Sources */,
+				969C6FDD1949809400B31175 /* SHStudent.m in Sources */,
 				4124F114194634B20018933C /* ChildViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

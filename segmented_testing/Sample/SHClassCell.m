@@ -78,6 +78,7 @@
     [self.teacherEmailLabel setFrame:CGRectMake(110.0, 20.0, 90.0, 20.0)];
     self.teacherEmailLabel.text = @"jrellerm@cs.utexas.edu";
     
+    
     [self.teacherOfficeLabel setFrame:CGRectMake(210.0, 20.0, 60.0, 20.0)];
     self.teacherOfficeLabel.text = @"GDC 4.301";
     

@@ -11,8 +11,12 @@
 #import "SHHuddleCell.h"
 #import "SHClassCell.h"
 #import "SHRequestCell.h"
+#import "SHAddCell.h"
+#import "SHClass.h"
+#import "SHHuddle.h"
+#import "SHStudent.h"
 
-@interface SegmentViewController ()
+@interface SegmentViewController () <SHAddCellDelegate>
 
 @end
 
@@ -57,19 +61,19 @@
 {
     
     if([[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex]  isEqual: @"HUDDLES"]){
-        NSLog(@"Huddles height");
+        //NSLog(@"Huddles height");
         return huddleCellHeight;
     }
     else if ([[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex]  isEqual: @"CLASSES"]){
-        NSLog(@"Classes height");
+        //NSLog(@"Classes height");
         return classCellHeight;
     }
     else if ([[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex]  isEqual: @"REQUESTS"]){
-        NSLog(@"Classes height");
+        //NSLog(@"Classes height");
         return requestsCellHeight;
     }
     else{
-        NSLog(@"Student height");
+        //NSLog(@"Student height");
         return studentCellHeight;
     }
     
@@ -96,7 +100,9 @@
 {
     static NSString *CellIdentifier = @"Cell";
     
-    if([[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex]  isEqual: @"HUDDLES"]){
+    if (indexPath.row == 19)
+        CellIdentifier = @"AddCell";
+    else if([[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex]  isEqual: @"HUDDLES"]){
         CellIdentifier = @"HuddlesCell";
     }
     else if ([[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex]  isEqual: @"CLASSES"]){
@@ -105,10 +111,6 @@
     else if ([[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex]  isEqual: @"REQUESTS"]){
         CellIdentifier = @"RequestsCell";
     }
-//    else{
-//        CellIdentifier
-//    }
-//    
     
 
     SHBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -129,8 +131,14 @@
             cell = [[SHRequestCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             cell.textLabel.textColor = [UIColor darkGrayColor];
         }
+        else if([CellIdentifier isEqual:@"AddCell"])
+        {
+            cell = [[SHAddCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            cell.textLabel.textColor = [UIColor darkGrayColor];
+            cell.delegate = self;
+        }
         else
-        return nil;
+            return nil;
      
     }
     
@@ -143,6 +151,24 @@
     return cell;
 }
 
+
+-(void)cell:(SHAddCell *)cellView didTapAddButton:(PFUser *)aUser
+{
+    if([[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex]  isEqual: @"HUDDLES"]){
+        SHHuddle *newHuddle = [[SHHuddle alloc] init];
+        NSLog(@"New Huddle");
+    }
+    else if ([[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex]  isEqual: @"CLASSES"]){
+        SHClass *newClass = [[SHClass alloc] init];
+        NSLog(@"New Class");
+    }
+    else if ([[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex]  isEqual: @"REQUESTS"]){
+        NSLog(@"New Student");
+    }
+    else{
+        NSLog(@"NBlack People");
+    }
+}
 
 
 #pragma mark - UITableViewDelegate Methods
