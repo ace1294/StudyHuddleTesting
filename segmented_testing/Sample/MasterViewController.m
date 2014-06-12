@@ -73,7 +73,7 @@
     
     _menuItems = @[[@"Studying" uppercaseString], [@"Classes" uppercaseString], [@"Huddles" uppercaseString], [@"Requests" uppercaseString]];
     CGRect myFrame = CGRectMake(0.0f, 220.0f, 320.0f, 30.0f);
-    CGRect mySecondFrame = CGRectMake(0.0f, 250.0f, 320.0f, 318.0f);
+    CGRect mySecondFrame = CGRectMake(0.0f, 255.0f, 320.0f, 313.0f);
     
     self.tableView.tableHeaderView = self.control;
     self.tableView.tableFooterView = [UIView new];

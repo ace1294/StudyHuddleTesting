@@ -22,7 +22,6 @@
 #define cellHeight 88.0f
 
 #define vertBorderSpacing 8.0f
-#define vertElemSpacing 0.0f
 
 //#define horiBorderSpacing 8.0f
 #define horiBorderSpacingBottom 9.0f
@@ -30,16 +29,12 @@
 
 #define vertTextBorderSpacing 10.0f
 
-#define nameX avatarX+avatarDim+horiElemSpacing
-#define nameY vertTextBorderSpacing
-#define nameMaxWidth 200.0f
-
 #define timeX avatarX+avatarDim+horiElemSpacing
 
-#define requestStudyX 260.0
-#define requestStudyY 38.0
-#define requestStudyDimX 40.0
-#define requestStudyDimY 20.0
+#define requestStudyX descriptionX+horiElemSpacing
+#define requestStudyY 28.0
+#define requestStudyDimX 80.0
+#define requestStudyDimY 40.0
 
 /*!
  The protocol defines methods a delegate of a PAPBaseTextCell should implement.

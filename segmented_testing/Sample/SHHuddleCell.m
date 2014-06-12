@@ -10,6 +10,7 @@
 #import "SHPageImageView.h"
 
 #define _huddleOrange     [UIColor colorWithRed:255.0f/255.0f green:183.0f/255.0f blue:24.0f/255.0f alpha:1.0f]
+#define _huddleAlphaOrange     [UIColor colorWithRed:255.0f/255.0f green:183.0f/255.0f blue:24.0f/255.0f alpha:.2f]
 #define _huddleCharcoal     [UIColor colorWithRed:128.0f/255.0f green:130.0f/255.0f blue:133.0f/255.0f alpha:1.0f]
 #define _huddleMidnightBlue     [UIColor colorWithRed:45.0f/255.0f green:62.0f/255.0f blue:79.0f/255.0f alpha:1.0f]
 #define _huddleSilver     [UIColor colorWithRed:128.0f/255.0f green:130.0f/255.0f blue:133.0f/255.0f alpha:1.0f]
@@ -17,9 +18,10 @@
 
 @interface SHHuddleCell ()
 
-
 @property (nonatomic, strong) UIButton *requestStudyButton;
-//@property (nonatomic, strong) SHPageImageView *huddleImageView;
+@property (nonatomic, strong) UILabel *membersLabel;
+@property (nonatomic, strong) UILabel *statusLabel;
+@property (nonatomic, strong) UILabel *classLabel;
 
 @end
 
@@ -36,16 +38,42 @@
         self.requestStudyButton = [[UIButton alloc] init];
         [self.requestStudyButton setBackgroundColor:_huddleOrange];
         self.requestStudyButton.layer.cornerRadius = 3;
-        [self.requestStudyButton setTitleColor:_huddleMidnightBlue forState:UIControlStateNormal];
-        [self.requestStudyButton setTitleColor:_huddleMidnightBlue forState:UIControlStateHighlighted];
-        [self.requestStudyButton.titleLabel setFont: Arial];
+        [self.requestStudyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.requestStudyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        [self.requestStudyButton.titleLabel setFont: Arial_Black];
         [self.requestStudyButton.titleLabel setLineBreakMode:NSLineBreakByTruncatingTail]; //?????????????????
-        self.requestStudyButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        //[self.titleButton setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        //[self.titleButton setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateSelected];
-        [self.requestStudyButton.titleLabel setShadowOffset:CGSizeMake( 0.0f, 1.0f)];
+        self.requestStudyButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         [self.requestStudyButton addTarget:self action:@selector(requestStudyTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self.mainView addSubview:self.requestStudyButton];
+        
+        self.membersLabel = [[UILabel alloc] init];
+        [self.membersLabel setFont:Arial];
+        [self.membersLabel setTextColor:_huddleSilver];
+        [self.membersLabel setNumberOfLines:0];
+        [self.membersLabel sizeToFit];
+        [self.membersLabel setLineBreakMode:NSLineBreakByWordWrapping];
+        [self.membersLabel setBackgroundColor:[UIColor clearColor]];
+        [self.mainView addSubview:self.membersLabel];
+    
+        self.statusLabel = [[UILabel alloc] init];
+        [self.statusLabel setFont:Arial];
+        [self.statusLabel setTextColor:_huddleSilver];
+        [self.statusLabel setNumberOfLines:0];
+        [self.statusLabel sizeToFit];
+        [self.statusLabel setLineBreakMode:NSLineBreakByWordWrapping];
+        [self.statusLabel setBackgroundColor:[UIColor clearColor]];
+        [self.mainView addSubview:self.statusLabel];
+        
+        self.classLabel = [[UILabel alloc] init];
+        [self.classLabel setFont:Arial];
+        [self.classLabel setTextColor:_huddleSilver];
+        [self.classLabel setNumberOfLines:0];
+        [self.classLabel sizeToFit];
+        [self.classLabel setLineBreakMode:NSLineBreakByWordWrapping];
+        [self.classLabel setBackgroundColor:[UIColor clearColor]];
+        [self.mainView addSubview:self.classLabel];
+        
+        [self.contentView addSubview:self.mainView];
     }
     return self;
 }
@@ -53,19 +81,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    [self.requestStudyButton setFrame:CGRectMake(requestStudyX, requestStudyY, requestStudyDimX, requestStudyDimY)];
-    [self.requestStudyButton setTitle:@"Ask To Study" forState:UIControlStateNormal];
-    [self.requestStudyButton setTitle:@"Ask To Study" forState:UIControlStateHighlighted];
-    
-    // Layout the activity image and show it if it is not nil (no image for the follow activity).
-    // Note that the image view is still allocated and ready to be dispalyed since these cells
-    // will be reused for all types of activity.
-//    [self.avatarImageView setFrame:CGRectMake( avatarX, avatarY, 33.0f, 33.0f)];
-//    [self.avatarImageButton setFrame:CGRectMake( [UIScreen mainScreen].bounds.size.width - 46.0f, 8.0f, 33.0f, 33.0f)];
-    
-    
-//    [self.titleButton setTitleColor:_huddleOrange forState:UIControlStateNormal];
-//    [self.titleButton setTitleColor:_huddleOrange forState:UIControlStateHighlighted];
+
     
 //    // Add activity image if one was set
 //    if (self.hasActivityImage) {
@@ -76,12 +92,27 @@
 //        [self.activityImageButton setHidden:YES];
 //    }
     
+    //Title button
+    CGSize titleSize = [self.titleButton.titleLabel.text boundingRectWithSize:CGSizeMake(nameMaxWidth, CGFLOAT_MAX)
+                                                                      options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin // word wrap?
+                                                                   attributes:@{NSFontAttributeName:Arial_Black}
+                                                                      context:nil].size;
+    
     // Change frame of the content text so it doesn't go through the right-hand side picture
-//    CGSize descriptionSize = [self.descriptionLabel.text boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 72.0f - 46.0f, CGFLOAT_MAX)
-//                                                              options:NSStringDrawingUsesLineFragmentOrigin // wordwrap?
-//                                                           attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13.0f]}
-//                                                              context:nil].size;
-//    [self.descriptionLabel setFrame:CGRectMake( descriptionX, descriptionY, descriptionSize.width, descriptionSize.height)];
+    
+    [self.requestStudyButton setFrame:CGRectMake(requestStudyX + descriptionDimX, requestStudyY, requestStudyDimX, requestStudyDimY)];
+    [self.requestStudyButton setTitle:@"Ask To Study" forState:UIControlStateNormal];
+    [self.requestStudyButton setTitle:@"Ask To Study" forState:UIControlStateHighlighted];
+    
+    [self.membersLabel setFrame:CGRectMake(descriptionX, descriptionY+titleSize.height, descriptionDimX, 10.0)];
+    self.membersLabel.text = @"10 Members";
+    
+    [self.statusLabel setFrame:CGRectMake(descriptionX, self.membersLabel.frame.origin.y+titleSize.height, descriptionDimX, 10.0)];
+    self.statusLabel.text = @"Open";
+    
+    [self.classLabel setFrame:CGRectMake(descriptionX, self.statusLabel.frame.origin.y+titleSize.height, descriptionDimX, 10.0)];
+    self.classLabel.text = @"GOV 310";
+
     
 
 }
@@ -137,8 +168,8 @@
 //}
 
 - (void)requestStudyTapped:(id)sender {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(cell:didTapTitleButton:)]) {
-        [self.delegate cell:self didTapTitleButton:self.user];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(cell:didTapTitleButtonAction:)]) {
+        [self.delegate cell:self didTapTitleButtonAction:self.user];
     }
 }
 

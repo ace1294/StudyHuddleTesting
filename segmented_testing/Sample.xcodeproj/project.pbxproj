@@ -44,6 +44,9 @@
 		96A2963F19478F9C00814968 /* Online_Ring@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96A2963B19478F9C00814968 /* Online_Ring@2x.png */; };
 		96A29642194797B400814968 /* Arial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96A29641194797B400814968 /* Arial.ttf */; };
 		96A29644194797BE00814968 /* Arial Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96A29643194797BE00814968 /* Arial Black.ttf */; };
+		96A296471947F8D000814968 /* SHClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A296461947F8D000814968 /* SHClassCell.m */; };
+		96A2964A1948080D00814968 /* SHRequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A296491948080D00814968 /* SHRequestCell.m */; };
+		96E122DD19491FA100608184 /* Right_Pointing_Arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96E122DC19491FA100608184 /* Right_Pointing_Arrow@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +100,11 @@
 		96A2963B19478F9C00814968 /* Online_Ring@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Online_Ring@2x.png"; sourceTree = "<group>"; };
 		96A29641194797B400814968 /* Arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arial.ttf; sourceTree = "<group>"; };
 		96A29643194797BE00814968 /* Arial Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arial Black.ttf"; sourceTree = "<group>"; };
+		96A296451947F8D000814968 /* SHClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHClassCell.h; sourceTree = "<group>"; };
+		96A296461947F8D000814968 /* SHClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHClassCell.m; sourceTree = "<group>"; };
+		96A296481948080D00814968 /* SHRequestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRequestCell.h; sourceTree = "<group>"; };
+		96A296491948080D00814968 /* SHRequestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRequestCell.m; sourceTree = "<group>"; };
+		96E122DC19491FA100608184 /* Right_Pointing_Arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Right_Pointing_Arrow@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +224,10 @@
 				96A296231946806800814968 /* SHBaseTableViewCell.m */,
 				96A296351946B07800814968 /* SHHuddleCell.h */,
 				96A296361946B07800814968 /* SHHuddleCell.m */,
+				96A296451947F8D000814968 /* SHClassCell.h */,
+				96A296461947F8D000814968 /* SHClassCell.m */,
+				96A296481948080D00814968 /* SHRequestCell.h */,
+				96A296491948080D00814968 /* SHRequestCell.m */,
 			);
 			name = UITableViewCells;
 			sourceTree = "<group>";
@@ -225,6 +237,7 @@
 			children = (
 				96A29641194797B400814968 /* Arial.ttf */,
 				96A29643194797BE00814968 /* Arial Black.ttf */,
+				96E122DC19491FA100608184 /* Right_Pointing_Arrow@2x.png */,
 				96A2963819478F9C00814968 /* Offline_Ring.png */,
 				96A2963919478F9C00814968 /* Offline_Ring@2x.png */,
 				96A2963A19478F9C00814968 /* Online_Ring.png */,
@@ -299,6 +312,7 @@
 				96A29630194685D200814968 /* ShadowProfilePicture-29.png in Resources */,
 				4FFE32D118C56B5100C3A85F /* InfoPlist.strings in Resources */,
 				96A2963F19478F9C00814968 /* Online_Ring@2x.png in Resources */,
+				96E122DD19491FA100608184 /* Right_Pointing_Arrow@2x.png in Resources */,
 				96A2963E19478F9C00814968 /* Online_Ring.png in Resources */,
 				4FFE32D918C56B5100C3A85F /* Images.xcassets in Resources */,
 			);
@@ -312,6 +326,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				96A295A2194651A600814968 /* SegmentViewController.m in Sources */,
+				96A296471947F8D000814968 /* SHClassCell.m in Sources */,
+				96A2964A1948080D00814968 /* SHRequestCell.m in Sources */,
 				96A29628194683BE00814968 /* SHImageView.m in Sources */,
 				96A2962E1946853500814968 /* SHPageImageView.m in Sources */,
 				96A2958719463B2C00814968 /* DZNSegmentedControl.m in Sources */,

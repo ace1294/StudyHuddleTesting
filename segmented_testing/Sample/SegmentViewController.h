@@ -24,3 +24,4 @@
 #define huddleCellHeight 88.0f
 #define studentCellHeight 88.0f
 #define classCellHeight 44.0f
+#define requestsCellHeight 44.0f
