@@ -16,6 +16,13 @@
 @property (nonatomic, retain)  UITableView *tableView;
 @property (nonatomic, strong) NSArray *menuItems;
 
+@property NSMutableArray *studyingDataArray;
+@property NSMutableArray* classesDataArray;
+@property NSMutableArray* huddlesDataArray;
+@property NSMutableArray* requestsDataArray;
+
+@property NSMutableArray* encapsulatingDataArray;
+
 //- (void) reloadTableView;
 
 @end

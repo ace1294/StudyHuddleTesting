@@ -19,12 +19,12 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    [SHClass registerSubclass];
-    [SHStudent registerSubclass];
-    [SHHuddle registerSubclass];
+    //[SHClass registerSubclass];
+    //[SHStudent registerSubclass];
+    //[SHHuddle registerSubclass];
     
-    [Parse setApplicationId:@"tYVLuBAkB3oeGEo8dQa0mQdW8AfyppZHI92DKvTk"
-                  clientKey:@"BZ4boxrBIGK0dJKV47r7hVJ4D4C9bSensOhR46kN"];
+    [Parse setApplicationId:@"ymjqnTAO1KQZSotlEL8dWSo5VkB57zjiGuAKYXDC"
+                  clientKey:@"wZhe0Jyh8kiH9SFmgxNzXd4Tvie1F0jnqY9cVsQQ"];
     
     
     MasterViewController* masterViewController = [[MasterViewController alloc]init];

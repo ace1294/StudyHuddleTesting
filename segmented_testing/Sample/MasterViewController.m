@@ -9,6 +9,13 @@
 #import "MasterViewController.h"
 #import "DZNSegmentedControl.h"
 #import "SegmentViewController.h"
+#import "SHHuddleCell.h"
+#import "SHClassCell.h"
+#import "SHRequestCell.h"
+#import "SHAddCell.h"
+#import "SHClass.h"
+#import "SHHuddle.h"
+#import "SHStudent.h"
 #import <Parse/Parse.h>
 
 #define _allowAppearance    YES
@@ -85,10 +92,58 @@
     
     
     
+    
+    
     self.tableView = [[UITableView alloc] initWithFrame:mySecondFrame style:UITableViewStylePlain];
     self.tableView.dataSource = _segmentController;
     self.tableView.delegate = _segmentController;
     [self.view addSubview:self.tableView];
+    
+    
+    [self.tableView registerClass:[SHHuddleCell class] forCellReuseIdentifier:@"HuddleCell"];
+    
+    [self.tableView registerClass:[SHClassCell class] forCellReuseIdentifier:@"ClassCell"];
+    
+    [self.tableView registerClass:[SHAddCell class] forCellReuseIdentifier:@"AddCell"];
+    
+    [self.tableView registerClass:[SHRequestCell class] forCellReuseIdentifier:@"RequestCell"];
+    
+    
+    
+    
+    
+    self.StudyingDataArray = [[NSMutableArray alloc]init];
+    self.ClassesDataArray = [[NSMutableArray alloc]init];
+    self.HuddlesDataArray = [[NSMutableArray alloc]init];
+    self.RequestsDataArray = [[NSMutableArray alloc]init];
+    self.encapsulatingDataArray = [[NSMutableArray alloc]initWithObjects:self.studyingDataArray,self.classesDataArray,self.huddlesDataArray,self.requestsDataArray, nil];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Studying"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error) [self.studyingDataArray addObjectsFromArray:objects];
+    }];
+    
+    query = [PFQuery queryWithClassName:@"Classes"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error) [self.classesDataArray addObjectsFromArray:objects];
+        
+    }];
+    
+    
+    
+    query = [PFQuery queryWithClassName:@"Huddle"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error) [self.huddlesDataArray addObjectsFromArray:objects];
+        [self.tableView reloadData];
+    }];
+    
+    query = [PFQuery queryWithClassName:@"Requests"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error) [self.requestsDataArray addObjectsFromArray:objects];
+    }];
+    
+    
+
     
 }
 
@@ -138,6 +193,7 @@
 
 - (void)selectedSegment:(DZNSegmentedControl *)control
 {
+    self.segmentController.currentRowsToDisplay = [[self.encapsulatingDataArray objectAtIndex:control.selectedSegmentIndex]count] + 1;
     [self.tableView reloadData];
 }
 

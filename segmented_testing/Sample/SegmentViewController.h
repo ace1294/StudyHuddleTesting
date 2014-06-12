@@ -19,6 +19,8 @@
 @property (nonatomic, strong) UITableView *tableSource;
 @property(nonatomic,retain) MasterViewController *parent;
 
+@property int currentRowsToDisplay;
+
 @end
 
 #define huddleCellHeight 88.0f

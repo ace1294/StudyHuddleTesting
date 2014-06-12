@@ -18,17 +18,20 @@
 
 @interface SegmentViewController () <SHAddCellDelegate>
 
+@property (strong, nonatomic) NSString *CellIdentifier;
+
 @end
 
 @implementation SegmentViewController
 
 @synthesize tableSource;
+@synthesize CellIdentifier;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.CellIdentifier = [[NSString alloc] init];
     }
     return self;
 }
@@ -42,6 +45,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+   
+    
 
 }
 
@@ -54,7 +60,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return self.currentRowsToDisplay;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,53 +104,53 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+
     
-    if (indexPath.row == 19)
+    if (indexPath.row == self.currentRowsToDisplay-1){
         CellIdentifier = @"AddCell";
+    }
     else if([[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex]  isEqual: @"HUDDLES"]){
-        CellIdentifier = @"HuddlesCell";
+        CellIdentifier = @"HuddleCell";
     }
     else if ([[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex]  isEqual: @"CLASSES"]){
-        CellIdentifier = @"ClassesCell";
+        CellIdentifier = @"ClassCell";
     }
     else if ([[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex]  isEqual: @"REQUESTS"]){
-        CellIdentifier = @"RequestsCell";
+        CellIdentifier = @"RequestCell";
     }
     
 
-    SHBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    SHBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.textLabel.textColor = [UIColor darkGrayColor];
     
-    if (!cell) {
-        if([CellIdentifier isEqual:@"HuddlesCell"])
+    
+    
+    
+        if([CellIdentifier isEqual:@"HuddleCell"])
         {
-            cell = [[SHHuddleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            cell.textLabel.textColor = [UIColor darkGrayColor];
+            NSLog(@"huddles was selected");
+            PFObject* huddleObject = [self.parent.huddlesDataArray objectAtIndex:(int)indexPath.row];
+            NSString* huddleName = huddleObject[@"huddleName"];
+            [cell.titleButton setTitle:huddleName forState:UIControlStateNormal];
         }
-        else if([CellIdentifier isEqual:@"ClassesCell"])
+        else if([CellIdentifier isEqual:@"ClassCell"])
         {
-            cell = [[SHClassCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            cell.textLabel.textColor = [UIColor darkGrayColor];
+            
         }
-        else if([CellIdentifier isEqual:@"RequestsCell"])
+        else if([CellIdentifier isEqual:@"RequestCell"])
         {
-            cell = [[SHRequestCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            cell.textLabel.textColor = [UIColor darkGrayColor];
+
         }
         else if([CellIdentifier isEqual:@"AddCell"])
         {
-            cell = [[SHAddCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            cell.textLabel.textColor = [UIColor darkGrayColor];
             cell.delegate = self;
         }
-        else
-            return nil;
-     
-    }
+
     
-    NSString *temp = [NSString stringWithFormat:@"%@ #%d", [[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex] capitalizedString], (int)indexPath.row+1];
-    [cell.titleButton setTitle:temp forState:UIControlStateNormal];
-    //[NSString stringWithFormat:@"%@ #%d", [[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex] capitalizedString], (int)indexPath.row+1];
+    
+
+
+
     
     [cell layoutIfNeeded];
     
@@ -155,11 +161,11 @@
 -(void)cell:(SHAddCell *)cellView didTapAddButton:(PFUser *)aUser
 {
     if([[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex]  isEqual: @"HUDDLES"]){
-        SHHuddle *newHuddle = [[SHHuddle alloc] init];
+       // SHHuddle *newHuddle = [[SHHuddle alloc] init];
         NSLog(@"New Huddle");
     }
     else if ([[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex]  isEqual: @"CLASSES"]){
-        SHClass *newClass = [[SHClass alloc] init];
+       // SHClass *newClass = [[SHClass alloc] init];
         NSLog(@"New Class");
     }
     else if ([[self.parent.control titleForSegmentAtIndex:self.parent.control.selectedSegmentIndex]  isEqual: @"REQUESTS"]){
