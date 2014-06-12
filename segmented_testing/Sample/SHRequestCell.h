@@ -10,16 +10,19 @@
 
 @interface SHRequestCell : SHBaseTableViewCell
 
+- (void)didTapAcceptButtonAction:(id)sender;
+- (void)didTapDenyButtonAction:(id)sender;
+
 @end
 
-#define acceptX 260.0
+#define acceptX 245.0
 #define acceptY 16.0
-#define acceptDimX 20.0
+#define acceptDimX 30.0
 #define acceptDimY 20.0
 
-#define denyX acceptX+acceptDimY
+#define denyX acceptX+acceptDimX+horiElemSpacing
 #define denyY 16.0
-#define denyDimX acceptDimX
+#define denyDimX acceptDimX-10.0
 #define denyDimY acceptDimY
 
 @protocol SHRequestCellDelegate <SHBaseTableViewCellDelegate>
@@ -29,8 +32,8 @@
  Sent to the delegate when the activity button is tapped
  @param activity the PFObject of the activity that was tapped
  */
-- (void)cell:(SHRequestCell *)cellView didAcceptRequestTapped:(PFObject *)requestStudy;
-- (void)cell:(SHRequestCell *)cellView didDenyRequestTapped:(PFObject *)requestStudy;
+- (void)cell:(SHRequestCell *)cellView didTapAcceptButton:(PFObject *)requestStudy;
+- (void)cell:(SHRequestCell *)cellView didTapDenyButton:(PFObject *)requestStudy;
 
 @end
 

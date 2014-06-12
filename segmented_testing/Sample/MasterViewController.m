@@ -110,7 +110,7 @@
         
         //        _control.backgroundColor = [UIColor lightGrayColor];
         //        _control.tintColor = [UIColor purpleColor];
-        //        _control.hairlineColor = [UIColor purpleColor];
+        //    _control.hairlineColor = [UIColor purpleColor];
         //        _control.hairlineColor = self.view.tintColor;
                 _control.showsCount = NO;
                _control.autoAdjustSelectionIndicatorWidth = YES;

@@ -14,6 +14,8 @@
 
 //@property (nonatomic, strong) PFObject *requestStudy;
 
+- (void)didTapStudyButtonAction:(id)sender;
+
 @end
 
 /*! Layout constants */
@@ -46,6 +48,6 @@
  Sent to the delegate when the activity button is tapped
  @param activity the PFObject of the activity that was tapped
  */
-- (void)cell:(SHHuddleCell *)cellView didTapActivityButton:(PFObject *)requestStudy;
+- (void)cell:(SHHuddleCell *)cellView didTapStudyButton:(PFObject *)requestStudy;
 
 @end

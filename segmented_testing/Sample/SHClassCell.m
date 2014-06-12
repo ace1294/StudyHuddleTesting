@@ -81,7 +81,7 @@
     [self.teacherOfficeLabel setFrame:CGRectMake(210.0, 20.0, 60.0, 20.0)];
     self.teacherOfficeLabel.text = @"GDC 4.301";
     
-    [self.arrowButton setFrame:CGRectMake(250.0, 7.0, 30.0, 30.0)];
+    [self.arrowButton setFrame:CGRectMake(270.0, 7.0, 30.0, 30.0)];
 
     
     
@@ -92,8 +92,8 @@
 
 /* Inform delegate that a user image or name was tapped */
 - (void)didTapArrowButtonAction:(id)sender {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(cell:didTapArrowButtonAction:)]) {
-        [self.delegate cell:self didTapArrowButtonAction:self.user];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(cell:didTapArrowButton:)]) {
+        [self.delegate cell:self didTapArrowButton:self.user];
     }
 }
 

@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) UIButton *acceptButton;
 @property (nonatomic, strong) UIButton *denyButton;
+@property (nonatomic, strong) UILabel *descriptionLabel;
 //@property (nonatomic, strong) SHPageImageView *huddleImageView;
 
 @end
@@ -25,28 +26,23 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.acceptButton = [[UIButton alloc]init];
-        [self.acceptButton setBackgroundColor:[UIColor greenColor]];
-        self.acceptButton.layer.cornerRadius = 3;
-        [self.acceptButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [self.acceptButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-        [self.acceptButton.titleLabel setFont: Arial_Black];
-        [self.acceptButton.titleLabel setLineBreakMode:NSLineBreakByTruncatingTail]; //?????????????????
-        //self.acceptButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        //[self.acceptButton.titleLabel setShadowOffset:CGSizeMake( 0.0f, 1.0f)];
-        [self.acceptButton addTarget:self action:@selector(didAcceptRequestTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [self.acceptButton setImage:[UIImage imageNamed:@"Accept@2x.png"] forState:UIControlStateNormal];
+        [self.acceptButton addTarget:self action:@selector(didTapAcceptButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.mainView addSubview:self.acceptButton];
         
         self.denyButton = [[UIButton alloc]init];
-        [self.denyButton setBackgroundColor:[UIColor redColor]];
-        self.denyButton.layer.cornerRadius = 3;
-        [self.denyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [self.denyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-        [self.denyButton.titleLabel setFont: Arial_Black];
-        [self.denyButton.titleLabel setLineBreakMode:NSLineBreakByTruncatingTail]; //?????????????????
-        //self.denyButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        //[self.acceptButton.titleLabel setShadowOffset:CGSizeMake( 0.0f, 1.0f)];
-        [self.denyButton addTarget:self action:@selector(didDenyRequestTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [self.denyButton setImage:[UIImage imageNamed:@"Deny@2x.png"] forState:UIControlStateNormal];
+        [self.denyButton addTarget:self action:@selector(didTapDenyButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.mainView addSubview:self.denyButton];
+        
+        self.descriptionLabel = [[UILabel alloc]init];
+        [self.descriptionLabel setFont:Arial_8];
+        [self.descriptionLabel setTextColor:_huddleSilver];
+        [self.descriptionLabel setNumberOfLines:0];
+        [self.descriptionLabel sizeToFit];
+        [self.descriptionLabel setBackgroundColor:[UIColor clearColor]];
+        [self.mainView addSubview:self.descriptionLabel];
+        
     }
     return self;
 }
@@ -56,29 +52,27 @@
     [super layoutSubviews];
     [self.avatarImageView setHidden:YES];
     [self.acceptButton setFrame:CGRectMake(acceptX, acceptY, acceptDimX, acceptDimY)];
-    [self.acceptButton setTitle:@"A" forState:UIControlStateNormal];
-    [self.acceptButton setTitle:@"A" forState:UIControlStateHighlighted];
 
     [self.denyButton setFrame:CGRectMake(denyX, denyY, denyDimX, denyDimY)];
-    [self.denyButton setTitle:@"D" forState:UIControlStateNormal];
-    [self.denyButton setTitle:@"D" forState:UIControlStateHighlighted];
     
+    [self.descriptionLabel setFrame:CGRectMake(20.0, 20.0, 100.0, 20.0)];
+    self.descriptionLabel.text = @"Jason wants to study with you";
     
 }
 
 #pragma mark - Delegate methods
 
 /* Inform delegate that a user image or name was tapped */
-- (void)didAcceptRequestTapped:(id)sender {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(cell:didAcceptRequestTapped:)]) {
-        [self.delegate cell:self didAcceptRequestTapped:self.user];
+- (void)didTapAcceptButtonAction:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(cell:didTapAcceptButton:)]) {
+        [self.delegate cell:self didTapAcceptButton:self.user];
     }
 }
 
 /* Inform delegate that a user image or name was tapped */
-- (void)didDenyRequestTapped:(id)sender {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(cell:didDenyRequestTapped:)]) {
-        [self.delegate cell:self didDenyRequestTapped:self.user];
+- (void)didTapDenyButtonAction:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(cell:didTapDenyButton:)]) {
+        [self.delegate cell:self didTapDenyButton:self.user];
     }
 }
 

@@ -10,6 +10,8 @@
 
 @interface SHClassCell : SHBaseTableViewCell
 
+- (void)didTapArrowButtonAction:(id)sender;
+
 @end
 
 
@@ -20,6 +22,6 @@
  Sent to the delegate when the activity button is tapped
  @param activity the PFObject of the activity that was tapped
  */
-- (void)cell:(SHClassCell *)cellView didTapArrowButtonAction:(PFObject *)requestStudy;
+- (void)cell:(SHClassCell *)cellView didTapArrowButton:(PFObject *)requestStudy;
 
 @end

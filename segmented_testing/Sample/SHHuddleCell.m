@@ -43,7 +43,7 @@
         [self.requestStudyButton.titleLabel setFont: Arial_Black];
         [self.requestStudyButton.titleLabel setLineBreakMode:NSLineBreakByTruncatingTail]; //?????????????????
         self.requestStudyButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        [self.requestStudyButton addTarget:self action:@selector(requestStudyTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [self.requestStudyButton addTarget:self action:@selector(didTapStudyButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.mainView addSubview:self.requestStudyButton];
         
         self.membersLabel = [[UILabel alloc] init];
@@ -167,9 +167,9 @@
 //    }
 //}
 
-- (void)requestStudyTapped:(id)sender {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(cell:didTapTitleButtonAction:)]) {
-        [self.delegate cell:self didTapTitleButtonAction:self.user];
+- (void)didTapStudyButtonAction:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(cell:didTapStudyButton:)]) {
+        [self.delegate cell:self didTapStudyButton:self.user];
     }
 }
 
